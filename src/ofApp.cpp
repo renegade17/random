@@ -2,9 +2,20 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	
+	std::random_device rd;
+	std::mt19937 eng1(rd());
+	std::uniform_int_distribution<> unifrm(0, 1200);
+	std::uniform_int_distribution<>unifrm1(0, 970);
+	
 jewel.load("diamond.png");// image to use (must be stored in "random/bin/data" folder)
-X = {500, 1000, 30, 100, 300, 200, 750, 380 };// set of x-coordinates for jewel
-Y = {630, 400, 900,40, 200, 0, 90, 30}; //set of y-coordinates for jewel
+/*X = {500, 1000, 30, 100, 300, 200, 750, 380 };// set of x-coordinates for jewel
+Y = {630, 400, 900,40, 200, 0, 90, 30}; //set of y-coordinates for jewel*/
+for (int n=0; n<20; n++)
+{
+	X.push_back (unifrm(eng1));
+	Y.push_back (unifrm1(eng1));
+}	
 }
 
 //--------------------------------------------------------------
